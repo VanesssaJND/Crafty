@@ -1,7 +1,9 @@
-package com.example.crafty.Repository;
+package com.example.crafty.repositories;
 
-import com.example.crafty.entities.yarn.yarn;
+import com.example.crafty.entities.yarn.Yarn;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface yarnRepository extends JpaRepository<yarn, Long> {
+@Repository
+public interface YarnRepository extends JpaRepository<Yarn, Long> {
 }

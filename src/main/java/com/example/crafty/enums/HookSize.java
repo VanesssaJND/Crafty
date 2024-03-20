@@ -1,4 +1,4 @@
-package com.example.crafty.yarn;
+package com.example.crafty.enums;
 
 public enum HookSize {
 }

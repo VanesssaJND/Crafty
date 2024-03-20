@@ -1,4 +1,4 @@
-package com.example.crafty.yarn;
+package com.example.crafty.entities.yarn;
 
 import com.example.crafty.enums.ColorFamily;
 import com.example.crafty.enums.FiberType;
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table
-public class yarn {
+public class Yarn {
     @Id
     @SequenceGenerator(
             name = "yarn_sequence",
