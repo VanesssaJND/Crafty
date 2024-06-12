@@ -1,4 +1,4 @@
-package com.example.crafty.entities.yarn;
+package com.example.crafty.entities;
 
 import com.example.crafty.enums.ColorFamily;
 import com.example.crafty.enums.FiberType;
