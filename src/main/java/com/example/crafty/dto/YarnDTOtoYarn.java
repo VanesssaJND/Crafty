@@ -6,7 +6,7 @@ import com.example.crafty.enums.ColorFamily;
 import com.example.crafty.enums.FiberType;
 import com.example.crafty.enums.YarnWeight;
 
-public record YarnDTO(
+public record YarnDTOtoYarn(
         String name,
         String brand,
         String colorName,

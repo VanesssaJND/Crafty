@@ -1,6 +1,7 @@
 package com.example.crafty.services.Service;
 
-import com.example.crafty.dto.YarnDTO;
+import com.example.crafty.dto.YarnDTOtoYarn;
+import com.example.crafty.dto.YarnToDto;
 import com.example.crafty.entities.Yarn;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -10,7 +11,7 @@ import java.util.UUID;
 
 public interface YarnService {
     List<Yarn> getAllYarns();
-    Yarn findById(UUID id);
-    void addNewYarn(YarnDTO yarnDTO, MultipartFile image) throws IOException;
+    YarnToDto findById(UUID id);
+    void addNewYarn(YarnDTOtoYarn yarnDTOtoYarn, MultipartFile image) throws IOException;
 
 }

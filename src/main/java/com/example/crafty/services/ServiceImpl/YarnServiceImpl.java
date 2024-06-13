@@ -1,7 +1,7 @@
 package com.example.crafty.services.ServiceImpl;
 
-import com.example.crafty.dto.YarnDTO;
-import com.example.crafty.entities.Color;
+import com.example.crafty.dto.YarnDTOtoYarn;
+import com.example.crafty.dto.YarnToDto;
 import com.example.crafty.entities.Yarn;
 import com.example.crafty.exceptions.ResourceNotFoundException;
 import com.example.crafty.repositories.YarnRepository;
@@ -27,18 +27,19 @@ public class YarnServiceImpl implements YarnService {
     }
 
     //Todo implementar la logica para el caso donde la respuesta sea null
-    public Yarn findById(UUID id) throws ResourceNotFoundException {
+    public YarnToDto findById(UUID id) throws ResourceNotFoundException {
         Optional<Yarn> answer = yarnRepository.findById(id);
 
         if(answer.isPresent()) {
-            return answer.get();
+            Yarn yarn = answer.get();
+            return YarnToDto.fromEntity(yarn);
         }
         throw new ResourceNotFoundException("Yarn with id " + id + " doesn't exist");
     }
     @Override
     //Todo Manejar adecuadamente las excepciones
-    public void addNewYarn(YarnDTO yarnDTO, MultipartFile image) throws IOException {
-        Yarn yarn = yarnDTO.toEntity();
+    public void addNewYarn(YarnDTOtoYarn yarnDTOtoYarn, MultipartFile image) throws IOException {
+        Yarn yarn = yarnDTOtoYarn.toEntity();
         String imageUrl = cloudinaryService.uploadImage(image);
         yarn.setImage(imageUrl);
         yarnRepository.save(yarn);
