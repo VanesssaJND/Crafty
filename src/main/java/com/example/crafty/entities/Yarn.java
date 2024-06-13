@@ -52,4 +52,8 @@ public class Yarn {
     private int quantity;
 
     private String image;
+
+    @ManyToOne
+    @JoinColumn(name = "yarn_stash_id", nullable = false)
+    private YarnStash yarnStash;
 }
