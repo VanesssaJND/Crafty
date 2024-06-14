@@ -22,7 +22,7 @@ public class YarnStash {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "yarnStash", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Yarn> yarns;
+//    @OneToMany(mappedBy = "yarnStash", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Yarn> yarns;
 
 }

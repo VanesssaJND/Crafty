@@ -53,7 +53,7 @@ public class Yarn {
 
     private String image;
 
-    @ManyToOne
-    @JoinColumn(name = "yarn_stash_id", nullable = false)
-    private YarnStash yarnStash;
+//    @ManyToOne
+//    @JoinColumn(name = "yarn_stash_id", nullable = false)
+//    private YarnStash yarnStash;
 }

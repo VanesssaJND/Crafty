@@ -38,10 +38,11 @@ public class YarnServiceImpl implements YarnService {
     }
     @Override
     //Todo Manejar adecuadamente las excepciones
-    public void addNewYarn(YarnDTOtoYarn yarnDTOtoYarn, MultipartFile image) throws IOException {
+    public YarnToDto addNewYarn(YarnDTOtoYarn yarnDTOtoYarn, MultipartFile image) throws IOException {
         Yarn yarn = yarnDTOtoYarn.toEntity();
         String imageUrl = cloudinaryService.uploadImage(image);
         yarn.setImage(imageUrl);
         yarnRepository.save(yarn);
+        return YarnToDto.fromEntity(yarn);
     }
 }

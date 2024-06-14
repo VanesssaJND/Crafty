@@ -2,6 +2,7 @@ package com.example.crafty.controllers;
 
 import com.example.crafty.dto.YarnDTOtoYarn;
 import com.example.crafty.dto.YarnToDto;
+import com.example.crafty.entities.Yarn;
 import com.example.crafty.response.ResponseMessage;
 import com.example.crafty.services.Service.YarnService;
 import lombok.AllArgsConstructor;
@@ -21,11 +22,13 @@ import java.util.UUID;
 public class YarnController {
 
     private YarnService yarnService;
+
+
     @PostMapping(value = "/new_yarn", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-    public ResponseEntity<ResponseMessage> createNewYarn(@RequestPart("yarn" ) YarnDTOtoYarn yarnDTOtoYarn,
+    public ResponseEntity<YarnToDto> createNewYarn(@RequestPart("yarn" ) YarnDTOtoYarn yarnDTOtoYarn,
                                                          @RequestPart("image") MultipartFile image) throws IOException{
-        yarnService.addNewYarn(yarnDTOtoYarn,image);
-        return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("Articulo agregado exitosamente"));
+        YarnToDto yarntoDTO =yarnService.addNewYarn(yarnDTOtoYarn,image);
+        return ResponseEntity.status(HttpStatus.OK).body(yarntoDTO);
     }
 
     @GetMapping("/yarn/{id}")

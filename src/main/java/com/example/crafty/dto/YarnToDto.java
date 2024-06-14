@@ -1,12 +1,12 @@
 package com.example.crafty.dto;
 
-import com.example.crafty.entities.Color;
 import com.example.crafty.entities.Yarn;
 import com.example.crafty.enums.ColorFamily;
 import com.example.crafty.enums.FiberType;
 import com.example.crafty.enums.YarnWeight;
 
 public record YarnToDto(
+        java.util.UUID id,
         String name,
         String brand,
         String colorName,
@@ -19,6 +19,7 @@ public record YarnToDto(
 ) {
     public static YarnToDto fromEntity(Yarn yarn) {
         return new YarnToDto(
+                yarn.getId(),
                 yarn.getName(),
                 yarn.getBrand(),
                 yarn.getColor().getName(),

@@ -12,6 +12,6 @@ import java.util.UUID;
 public interface YarnService {
     List<Yarn> getAllYarns();
     YarnToDto findById(UUID id);
-    void addNewYarn(YarnDTOtoYarn yarnDTOtoYarn, MultipartFile image) throws IOException;
+    YarnToDto addNewYarn(YarnDTOtoYarn yarnDTOtoYarn, MultipartFile image) throws IOException;
 
 }
