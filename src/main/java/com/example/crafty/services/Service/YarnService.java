@@ -13,5 +13,11 @@ public interface YarnService {
     List<Yarn> getAllYarns();
     YarnToDto findById(UUID id);
     YarnToDto addNewYarn(YarnDTOtoYarn yarnDTOtoYarn, MultipartFile image) throws IOException;
+    List<YarnToDto>showAll();
+    YarnToDto updateYarn(UUID id, YarnDTOtoYarn yarnDTOtoYarn);
+    YarnToDto updateYarnPicture(UUID id, MultipartFile multipartFile) throws IOException;
+    void deleteYarn(UUID id);
+
+
 
 }

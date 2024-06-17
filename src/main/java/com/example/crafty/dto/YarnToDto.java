@@ -5,6 +5,9 @@ import com.example.crafty.enums.ColorFamily;
 import com.example.crafty.enums.FiberType;
 import com.example.crafty.enums.YarnWeight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public record YarnToDto(
         java.util.UUID id,
         String name,
@@ -30,5 +33,13 @@ public record YarnToDto(
                 yarn.getQuantity(),
                 yarn.getImage()
         );
+    }
+
+    public static List<YarnToDto> fromYarnList(List<Yarn> yarnList) {
+        List<YarnToDto> dtoList = new ArrayList<>();
+        for (Yarn yarn : yarnList) {
+            dtoList.add(fromEntity(yarn));
+        }
+        return dtoList;
     }
 }

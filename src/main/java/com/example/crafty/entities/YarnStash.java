@@ -3,7 +3,6 @@ package com.example.crafty.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -18,9 +17,9 @@ public class YarnStash {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+//    @OneToOne
+//    @JoinColumn(name = "user_id", nullable = false)
+//    private Userlalala userlalala;
 
 //    @OneToMany(mappedBy = "yarnStash", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<Yarn> yarns;
