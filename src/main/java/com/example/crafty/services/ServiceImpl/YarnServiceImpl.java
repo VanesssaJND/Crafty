@@ -26,7 +26,6 @@ public class YarnServiceImpl implements YarnService {
         return yarnRepository.findAll();
     }
 
-    //Todo implementar la logica para el caso donde la respuesta sea null
     public YarnToDto findById(UUID id){
         Optional<Yarn> answer = yarnRepository.findById(id);
 
@@ -37,11 +36,14 @@ public class YarnServiceImpl implements YarnService {
         throw new YarnNotFoundException(id);
     }
     @Override
-    //Todo Manejar adecuadamente las excepciones
     public YarnToDto addNewYarn(YarnDTOtoYarn yarnDTOtoYarn, MultipartFile image) throws IOException {
         Yarn yarn = yarnDTOtoYarn.toEntity();
-        String imageUrl = cloudinaryService.uploadImage(image);
-        yarn.setImage(imageUrl);
+        if(image==null){
+            yarn.setImage("https://res.cloudinary.com/ddn3lbfuv/image/upload/v1718830118/lana_p2311f.webp");
+        }else {
+            String imageUrl = cloudinaryService.uploadImage(image);
+            yarn.setImage(imageUrl);
+        }
         yarnRepository.save(yarn);
         return YarnToDto.fromEntity(yarn);
     }

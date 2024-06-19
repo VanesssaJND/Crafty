@@ -26,7 +26,7 @@ public class YarnController {
     }
     @PostMapping(value = "/new_yarn", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public ResponseEntity<YarnToDto> createNewYarn(@RequestPart("yarn" ) YarnDTOtoYarn yarnDTOtoYarn,
-                                                         @RequestPart("image") MultipartFile image) throws IOException{
+                                                   @RequestPart(value = "image", required = false) MultipartFile image ) throws IOException{
         YarnToDto yarntoDTO =yarnService.addNewYarn(yarnDTOtoYarn,image);
         return ResponseEntity.status(HttpStatus.CREATED).body(yarntoDTO);
     }
